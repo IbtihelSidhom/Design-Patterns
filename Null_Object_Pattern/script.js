@@ -9,23 +9,41 @@ class User {
     }
 }
 
+/*
+    This is the null version of the object we're trying to represent.
+    The constructor doesn't take any id of name because it will have default properties.
+*/
+class NullUser {
+    constructor() {
+        this.id = -1
+        this.name = 'Guest'
+    }
+
+    hasAccess() {
+        return false
+    }
+}
+
 const users = [
     new User(1, 'Bob'),
     new User(2, 'Jhon')
 ]
 
 function getUser(id) {
-    return users.find(user => user.id === id)
+    const user = users.find(user => user.id === id)
+    if (user == null) {
+        return new NullUser()
+    } else {
+        return user
+    }
 }
 
 function printUser(id) {
     const user = getUser(id)
 
-    let name = 'Guest'
-    if (user != null && user.name != null) name = user.name
-    console.log('Hello ' + name)
+    console.log('Hello ' + user.name)
 
-    if (user != null && user.hasAccess != null && user.hasAccess()) {
+    if (user.hasAccess()) {
         console.log('You have access')
     } else {
         console.log('You are not alowed here')
