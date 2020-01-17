@@ -8,9 +8,9 @@ We have 2 ways:
     This gives you a nice clean interface for setting the different properties of an object.
 
 - JS-specific:
-
-### After applying the Builder Pattern:
+    Make changes to the class itself: keep the required parameters and pass in the optional parameters as JS object.
+    It's even possible to put defaults values. Overall it takes much less code.
 
 
 ### Common use case:
-- 
+Usually usefull to create objects that have many inter-linking parts or many optional and required fields.

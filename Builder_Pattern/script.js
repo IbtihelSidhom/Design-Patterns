@@ -6,39 +6,15 @@ class Address {
 }
 
 class User {
-    constructor(name) {
+    constructor(name, { age, phone = '1234567890', address } = {}) {
         this.name = name
+        this.age = age
+        this.phone = phone
+        this.address = address
     }
 }
 
-class UserBuilder {
-    constructor(name) {
-        this.user = new User(name)
-    }
-
-    setAge(age) {
-        this.user.age = age
-        return this          //Returns the bUilder back, this would allow us to chain the methods together
-    }
-
-    setPhone(phone) {
-        this.user.phone = phone
-        return this          
-    }
-
-    setAddress(address) {
-        this.user.address = address
-        return this          
-    }
-
-    build() {
-        return this.user
-    }
-}
-
-//let user = new UserBuilder('Bob').build()
-//let user = new UserBuilder('Bob').setAge(22).build()
-let user = new UserBuilder('Bob').setAge(22).setPhone('21548435').build()
-
+//let user = new User('Bob', {age: 22})
+let user = new User('Bob', {age: 22, address: new Address('1', 'main')})
 
 console.log(user)
