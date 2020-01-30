@@ -4,7 +4,7 @@ The idea is to create a facade between your complex code and your actual busines
 ### What do we do exactly?
 Hide the details of implementation behind another function that takes the necessary parameters.
 
-### After applying the Singleton Pattern:
+### After applying the Facade Pattern:
 Makes refactoring easier because we only have to change our code in one place.
 Improve readability by masking interaction with more complex components behind a single API.
 
